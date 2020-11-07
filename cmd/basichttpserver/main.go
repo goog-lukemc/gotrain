@@ -1,7 +1,6 @@
 package main
 
 import (
-	"go-train/asciicoolness"
 	"log"
 	"net/http"
 	"path"

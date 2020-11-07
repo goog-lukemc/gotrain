@@ -28,7 +28,7 @@ func main() {
 	fmt.Println(reflect.TypeOf(arr).Kind())
 
 	// Slices
-	// make and enpty slice
+	// make and empty slice
 	slc := make([]int, 0)
 	fmt.Println(reflect.TypeOf(slc).Kind())
 
@@ -63,8 +63,11 @@ func main() {
 
 	// Let's run range over our map to get the values
 	for k, v := range mymap {
-		log.Printf("Unicode Number:%v Unicode Charter:%v", k, v)
+		log.Printf("Unicode Number:%v Unicode Charter:%v\n", k, v)
 	}
+
+	// Blocks on waiting on enter key
+	pressEnterKey()
 
 	// How long does it take to get an item from a map
 	start := time.Now()
@@ -75,7 +78,7 @@ func main() {
 }
 
 func pressEnterKey() {
-	fmt.Print("Press enter to continue")
+	fmt.Println("Press enter to continue")
 	input := bufio.NewScanner(os.Stdin)
 	input.Scan()
 }
