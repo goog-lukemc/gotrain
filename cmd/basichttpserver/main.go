@@ -6,6 +6,8 @@ import (
 	"path"
 	"strconv"
 	"time"
+
+	"github.com/goog-lukemc/gotrain"
 )
 
 func main() {
@@ -49,7 +51,7 @@ func asciiHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// we use our custom package to get us the data
-	data := asciicoolness.ASCIICoolness{
+	data := gotrain.ASCIICoolness{
 		Length: count + 1,
 	}
 	result, err := data.MarshalJSON()
