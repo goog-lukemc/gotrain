@@ -75,3 +75,7 @@ func main() {
 
 // In more complex functions with many defer statements,
 // it is important to note that defers are schedeled in last in first out order.
+
+// Bonus: https://golang.org/pkg/errors
+// Let's look at and discuss some of the new Error methods added in
+// go 1.13
