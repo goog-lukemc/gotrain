@@ -85,3 +85,10 @@ func checkhttp() {
 	}
 
 }
+
+// Exercise 10 minutes:
+// What are the problems with this code? Swallowed error etc...?
+
+// Bonus: The golang built in http lib is extremely robust but, over the years, many
+// external helper libs have been created. gorilla mux is a good example. Any
+// why this happen? How do you go about evaluating external open source libs?

@@ -34,6 +34,9 @@ func main() {
 // What is the difference between a function and a method in Go and
 // why would you choose one over the other?
 
+// Bonus:
+// Reference types in Go https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go
+
 // Exercise 5 Minutes:
 // Using the string package documentation at pkg.go.dev change the
 // above code to lowercase the variable output.
