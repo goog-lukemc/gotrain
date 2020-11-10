@@ -23,7 +23,7 @@ func main() {
 		log.Printf("Position:%v Url:%v", i, v)
 		resp, err := http.Get(v)
 
-		// Check for problems - Panic at first we will modify this.
+		// TODO: Check for problems - Panic at first we will modify this.
 		if err != nil {
 			log.Printf("Url %s returns error:%s", v, err.Error())
 			panic(err)
@@ -75,3 +75,21 @@ func main() {
 
 // In more complex functions with many defer statements,
 // it is important to note that defers are schedeled in last in first out order.
+
+// Bonus: https://golang.org/pkg/errors
+// Let's look at and discuss some of the new Error methods added in
+// go 1.13
+
+// b := new(bob)
+// Simple(b)
+
+// type bob struct {
+// }
+
+// func (b bob) Error() string {
+// 	return ""
+// }
+
+// func Simple(e error) string {
+// 	return "I Am An Error indeed"
+// }
