@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"time"
@@ -9,6 +10,10 @@ import (
 	"sync"
 
 	"github.com/google/uuid"
+)
+
+const (
+	LOCALPATH string = "/Users/lukemc/junk"
 )
 
 // These are our flag variables
@@ -22,10 +27,10 @@ func main() {
 	// Setting a time so we can calculate Duration
 	start := time.Now()
 
-	// dont forget to parse your flags
+	// Don't forget to parse your flags
 	flag.Parse()
 
-	// make a channel to safely communicate with our workders
+	// make a channel to safely communicate with our workers
 	s := make(chan string)
 
 	// Create a worker pool
@@ -51,19 +56,39 @@ func main() {
 	}
 
 	// waits for all our workers to finish
-	//wg.Wait()
+	wg.Wait()
 	f := time.Since(start)
 	log.Printf("Workload Count:%v Goroutine Count:%v Duration:%v", *workers, *testcount, f)
 }
 
 func writeFile(itemschan chan string) {
-	// range the channel watching as the items come in
+	// Range the channel watching as the items come in
+	// This loop will continue until items chan is closed
 	for data := range itemschan {
-		err := ioutil.WriteFile("/Users/ldeakm/temp/"+data+".txt", []byte(data), 0644)
+		outfile := fmt.Sprintf("%s/%s.txt", LOCALPATH, data)
+		err := ioutil.WriteFile(outfile, []byte(data), 0644)
 		if err != nil {
 			log.Printf("file error%v", err.Error())
 		}
 	}
-	// gorouting is exiting
+
 	wg.Done()
 }
+
+// Let's look at some go routine work patterns
+// https://divan.dev/posts/go_concurrency_visualize/
+
+// Exercise 20 mins:
+// Write a new program creating a struct that has a map of string string.
+// username is the key and password is the value.
+// Usernames are u1, u2, ..
+// Passwords are p1, p2, ..
+// Populate that maps with multiple go routings with 200k
+// user password combination in a concurrent safe manner
+// Hint read about sync.Mutex and sync.Map
+
+// Bonus: Read this blog on concurency in go
+// https://blog.golang.org/pipelines
+
+// Bonus: Leaking memory and go routines
+// https://go101.org/article/memory-leaking.html
