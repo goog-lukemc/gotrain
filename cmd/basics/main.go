@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Basic types
-	// Declaritive
+	// Declarative
 	var number int
 	var numberA int32
 	fmt.Println(reflect.TypeOf(number))
@@ -74,6 +74,22 @@ func main() {
 	log.Println(mymap[2])
 	lat := time.Since(start)
 	log.Printf("Op Took %v", lat)
+
+	// Print the map in sorted order
+	// Well I know that the keys are ints and
+	// They are loaded in sequence in the map so
+	// why not just loop the map again with a for loop
+	// and call the key of the map during the interation.
+
+	for c := 0; c < len(mymap); c++ {
+		fmt.Printf("%d - %s\n", c, mymap[c])
+	}
+
+	myMap2 := map[string]int{
+		"bob":  1,
+		"bob2": 2,
+	}
+	fmt.Printf("%+v", myMap2)
 
 }
 

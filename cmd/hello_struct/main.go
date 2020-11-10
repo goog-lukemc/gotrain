@@ -12,8 +12,8 @@ type message struct {
 }
 
 // Add a method to your new struct -
-func (m *message) UpperCaseIt() string {
-	return strings.ToUpper(*m.text)
+func (m message) UpperCaseIt() string {
+	return strings.ToLower(*m.text)
 }
 
 func main() {

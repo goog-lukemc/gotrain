@@ -6,7 +6,7 @@ import (
 )
 
 // set a variable to the value of the item supplied at the command line
-var hito = flag.String("message", "gophercon 2020", "Who shall we say hi to?")
+var hito = flag.String("message", "gophercon denver 2020", "Who shall we say hi to?")
 
 func main() {
 	// Parse the commandline parameters
@@ -14,6 +14,7 @@ func main() {
 
 	// Print the values to the screen
 	fmt.Printf("Hello %s!\n", *hito)
+
 }
 
 // Bonus -
