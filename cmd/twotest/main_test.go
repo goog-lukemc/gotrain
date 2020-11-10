@@ -44,3 +44,6 @@ func TestGetPathBase(t *testing.T) {
 
 	}
 }
+
+// Exercise 5 minutes:
+// Run the tests above with `go test` and fix the broken test

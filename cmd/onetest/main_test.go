@@ -61,3 +61,14 @@ func TestSum_table(t *testing.T) {
 	}
 
 }
+
+// Exercise 2 minutes:
+// Run the tests above with `go test` and fix the broken test
+
+// Bonus:
+
+// How to test with Go
+// https://www.calhoun.io/how-to-test-with-go/
+
+// Learn Go by writing tests
+// https://dev.to/quii/learn-go-by-writing-tests--m63 && https://github.com/quii/learn-go-with-tests
