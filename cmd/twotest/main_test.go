@@ -15,7 +15,7 @@ func TestGetPathBase(t *testing.T) {
 		{"http://google.com/search", "search", nil},
 		{"http://bo.bo.com/one/two/shoe/", "shoe", nil},
 		{"http://youtube.com/path/to/file?is=12345", "file", nil},
-		{"", "", errors.New("parse : empty url")},
+		{"", "", errors.New(`parse : empty url`)},
 	}
 
 	for _, tt := range tests {
@@ -30,11 +30,10 @@ func TestGetPathBase(t *testing.T) {
 				// Check to see if we got an error we expected
 				if gotErr.Error() != tt.err.Error() {
 
-					// as a note t.Fatal will fail the test case and immediately stop the rest of the test execution
 					// using %q when dealing with strings will make your test debugging a bit nicer 😀
-					t.Fatalf("GetPathBase() err = %q; want %q", gotErr.Error(), tt.err.Error())
+					t.Errorf("GetPathBase() err = %q; want %q", gotErr.Error(), tt.err.Error())
 				}
-				t.SkipNow()
+				return
 			}
 
 			// if we got a result we expected

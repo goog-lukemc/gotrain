@@ -19,5 +19,5 @@ func ExampleHelloEverybody() {
 
 	// Unordered output:
 	// Hello, 👋 Luke
-	// Hello, 👋 Alex
+	// Hello, 👋 Alex writes buggy code
 }
